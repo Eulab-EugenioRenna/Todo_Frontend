@@ -1,0 +1,94 @@
+<div class="container-land d-flex justify-content-center align-items-center flex-wrap gap-3 pt-5 w-100 flex-column">
+  <a routerLink="/" class=" d-flex justify-content-center align-items-center gap-3 home">
+    <div class="logo">
+      <img src="logo-black.png" alt="Logo Eulab" width="140px" height="auto">
+    </div>
+    <h1> - Todo App</h1>
+  </a>
+
+
+
+
+  <div class="buttons d-flex justify-content-center align-items-center gap-3 ">
+    
+    <p-button (click)="showLoginModal()" label="Sign In" />
+    <div class="d-flex justify-content-center align-items-center">
+      <p-dialog header="Header" [(visible)]="visibleLogin" [modal]="true" [style]="{ width: '25rem' }"
+        [baseZIndex]="10000" [draggable]="false" [resizable]="false">
+        <ng-template pTemplate="header">
+          <div class="inline-flex align-items-center justify-content-center gap-2">
+            <img src="logo-black.png" alt="Logo Eulab" width="90px">
+            <span class="font-bold white-space-nowrap">
+              Todo App
+            </span>
+          </div>
+        </ng-template>
+        <div class="d-flex flex-column justify-content-center  gap-4">
+          <form class="d-flex flex-column align-items-center gap-3" (ngSubmit)="login()" [formGroup]="loginForm">
+            <span class="p-text-secondary block my-3">Login with your Account</span>
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <label for="email" class="font-semibold w-6rem">
+                Email
+              </label>
+              <input pInputText id="email" class="flex-auto" autocomplete="off" placeholder="aaa@aaa.aa"
+                formControlName="email" required [ngClass]="loginForm.invalid ? 'ng-invalid ng-dirty' : 'primary' " />
+            </div>
+            <div class="d-flex align-items-center gap-3 mb-5">
+              <label for="password" class="font-semibold w-6rem">Password</label>
+              <input pInputText id="password" type="password" class="flex-auto" autocomplete="off" placeholder="XXXXXX"
+                formControlName="password" required
+                [ngClass]="loginForm.invalid ? 'ng-invalid ng-dirty' : 'primary' " />
+            </div>
+          </form>
+        </div>
+        <ng-template pTemplate="footer">
+          <p-button label="Cancel" [text]="true" severity="secondary" (click)="visibleLogin = false" />
+          <p-button label="Login" [outlined]="true" severity="secondary" (click)="login()" />
+        </ng-template>
+      </p-dialog>
+    </div>
+
+    <p-button (click)="showRegisterModal()" label="Sign Up" severity="danger" />
+    <div class="d-flex justify-content-center align-items-center">
+      <p-dialog header="Header" [(visible)]="visibleRegister" [modal]="true" [style]="{ width: '25rem' }"
+        [baseZIndex]="10000" [draggable]="false" [resizable]="false">
+        <ng-template pTemplate="header">
+          <div class="inline-flex align-items-center justify-content-center gap-2">
+            <img src="logo-black.png" alt="Logo Eulab" width="90px">
+            <span class="font-bold white-space-nowrap">
+              Todo App
+            </span>
+          </div>
+        </ng-template>
+        <div class="d-flex flex-column justify-content-center  gap-4">
+          <form class="d-flex flex-column align-items-center gap-3" (ngSubmit)="register()" [formGroup]="registerForm">
+            <span class="p-text-secondary block my-3">Sign Up with your Account</span>
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <label for="email" class="font-semibold w-6rem">
+                Email
+              </label>
+              <input pInputText id="email" class="flex-auto" autocomplete="off" placeholder="aaa@aaa.aa"
+                formControlName="email" required
+                [ngClass]="registerForm.invalid ? 'ng-invalid ng-dirty' : 'primary' " />
+            </div>
+            <div class="d-flex align-items-center gap-3 mb-5">
+              <label for="password" class="font-semibold w-6rem">Password</label>
+              <input pInputText id="password" type="password" class="flex-auto" autocomplete="off" placeholder="XXXXXX"
+                formControlName="password" required
+                [ngClass]="registerForm.invalid ? 'ng-invalid ng-dirty' : 'primary' " />
+            </div>
+          </form>
+        </div>
+        <ng-template pTemplate="footer">
+          <p-button label="Cancel" [text]="true" severity="secondary" (click)="visibleRegister = false" />
+          <p-button label="Register" [outlined]="true" severity="secondary" (click)="register()" />
+        </ng-template>
+      </p-dialog>
+    </div>
+  </div>
+
+  <p-messages [enableService]="true" [closable]="true" [showTransitionOptions]="'500ms'"
+    [hideTransitionOptions]="'500ms'"></p-messages>
+
+
+</div>

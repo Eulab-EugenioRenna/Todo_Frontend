@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+
+body {
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  background-image: url("https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.776);
+}
+
+.p-card .p-card-body {
+  background-color: #dcdc8e;
+}

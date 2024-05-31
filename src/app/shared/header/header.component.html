@@ -1,0 +1,56 @@
+<header class="d-flex justify-content-evenly align-items-center gap-5">
+  <div class="logo">
+    <img src="logo-black.png" alt=" Logo Eulab" width="150px">
+  </div>
+
+  <h1>Todo App</h1>
+
+
+  <div class="buttons d-flex justify-content-center align-items-center gap-3 ">
+    <p-button (click)="showCreateTodoModal()" label="Add Todo" severity="success" />
+    <p-button (click)="logout()" label="Log Out"></p-button>
+    <div class="d-flex justify-content-center align-items-center">
+      <p-dialog header="Header" [(visible)]="visibleCreateTodo" [modal]="true" [style]="{ width: '25rem' }"
+        [baseZIndex]="10000" [draggable]="false" [resizable]="false">
+        <ng-template pTemplate="header">
+          <div class="inline-flex align-items-center justify-content-center gap-2">
+            <img src="logo-black.png" alt="Logo Eulab" width="90px">
+            <span class="font-bold white-space-nowrap">
+              Todo App
+            </span>
+          </div>
+        </ng-template>
+        <div class="d-flex flex-column justify-content-center  gap-4">
+          <form class="d-flex flex-column align-items-start gap-3" (ngSubmit)="createTodo()" [formGroup]="createForm">
+            <span class="p-text-secondary block my-3">Create your Todo</span>
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <label for="title" class="font-semibold w-6rem">
+                Title
+              </label>
+              <input pInputText id="title" class="flex-auto" autocomplete="off" placeholder="Insert Your Title"
+                formControlName="title" required [ngClass]="createForm.invalid ? 'ng-invalid ng-dirty' : 'primary' " />
+            </div>
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <label for="description" class="font-semibold w-6rem">Description</label>
+              <textarea pInputText id="description" class="flex-auto" autocomplete="off"
+                placeholder="Insert Your Description" formControlName="description" required
+                [ngClass]="createForm.invalid ? 'ng-invalid ng-dirty' : 'primary' "></textarea>
+            </div>
+            <div class="d-flex align-items-center gap-3 mb-5">
+              <label for="link" class="font-semibold w-6rem">
+                Link Image
+              </label>
+              <input pInputText id="link" class="flex-auto" autocomplete="off" placeholder="Insert Your Title"
+                formControlName="link" required [ngClass]="createForm.invalid ? 'ng-invalid ng-dirty' : 'primary' " />
+            </div>
+          </form>
+        </div>
+        <ng-template pTemplate="footer">
+          <p-button label="Cancel" [text]="true" severity="secondary" (click)="visibleCreateTodo = false" />
+          <p-button label="Create" [outlined]="true" severity="secondary" (click)="createTodo()" />
+        </ng-template>
+      </p-dialog>
+    </div>
+  </div>
+
+</header>

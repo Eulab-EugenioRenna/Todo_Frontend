@@ -1,0 +1,12 @@
+.container-land {
+  margin-bottom: 50px;
+  .home {
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    &:hover,
+    &:active {
+      color: inherit;
+    }
+  }
+}

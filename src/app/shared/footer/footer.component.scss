@@ -1,0 +1,12 @@
+div.messages {
+  position: fixed;
+  z-index: 99999;
+  max-height: 100px;
+  bottom: 0;
+}
+
+.clear-notification {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
