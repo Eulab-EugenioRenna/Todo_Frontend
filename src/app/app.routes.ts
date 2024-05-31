@@ -5,10 +5,11 @@ import { authGuard } from './auth.guard';
 import { HomeComponent } from './pages/home/home.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, canActivate: [authGuard] },
   { path: 'welcome', component: WelcomeComponent },
   {
     path: '**',
     component: HomeComponent,
+    canActivate: [authGuard],
   },
 ];
